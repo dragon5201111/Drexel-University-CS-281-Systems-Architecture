@@ -1,3 +1,12 @@
-2.)
+2.) 
+The key principle(s) of the load/store architecture is all arithmetic operations get their operands from,
+and produce results in registers. Communication between memory and registers requires separate “load” and “store” operations. 
+In other words, all arithmetic and logical operations operate on data within a register, not directly on data in memory. This has a significant trade-off for 
+programmers as they are now responsible for manipulating memory at a lower level - which in turn increases code complexity. 
+For example, in C, to increment an integer variable "x" by one all that would be necessary,
+is simply "x++;" or "x+=1". However, a load/store architecture demands more. The programmer would need to explicitly load the value of "x"
+from memory into a register, perform the addition operation on the register, and then store the updated value back to memory.
+All in all, the load/store architecture, peels back the layer of abstraction most modern day programming employs, invoking more
+graularity and complexity from a programmer.
 
 3.)
