@@ -31,4 +31,4 @@ Moreover, if you need to run existing software on the IoT device, it would need 
 In most cases, this makes designing your own processor impractical. RISC-V stands out as an appealing option compared to alternatives like ARM or Intel/AMD,
 mainly because it is open-source. This openness allows anyone to design custom hardware based on the RISC-V architecture and even sell it, 
 making it a flexible and cost-effective solution. In contrast, using other processor architectures like ARM or Intel/AMD typically involves licensing fees,
-making the process more complex and expensive. Therefore, RISC-V offers a compelling choice for a processor.
+making the process more complex and expensive. Hence, RISC-V offers a compelling choice for a processor.
