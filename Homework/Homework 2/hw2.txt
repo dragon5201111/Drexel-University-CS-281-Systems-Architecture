@@ -1,3 +1,13 @@
 1.)
+A key reason the RISC-V designers chose to leave program counter (PC) manipulation to the processor is to address security concerns.
+If programmers were able to manipulate the PC directly, they could potentially jump to arbitrary memory locations, allowing them to execute arbitrary code,
+bypass security measures, or even access OS code, which could lead to privilege escalation. Another reason is related to control flow. 
+Instructions like jumps and branches are designed to be predictable and optimized by the compiler. Allowing direct manipulation of the PC could result in
+unpredictable behavior and make the code harder to understand and maintain.
 2.)
+One way assembler tooling helps address the limited range of opcodes is by providing pseudoinstructions.
+These are mnemonics that do not correspond directly to an actual opcode in the RISC-V instruction set, but
+the assembler translates them into machine instructions that achieve the same result. For example, the pseudoinstruction li
+is translated by the assembler into the appropriate sequence of instructions to load an immediate value.
+Pseudoinstructions are useful because they are easier to remember and use, which can help reduce bugs and improve program readability.
 3.)
