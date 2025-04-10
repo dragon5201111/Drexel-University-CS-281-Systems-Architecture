@@ -11,9 +11,9 @@ the assembler translates them into machine instructions that achieve the same re
 is translated by the assembler into the appropriate sequence of instructions to load an immediate value.
 Pseudoinstructions are useful because they are easier to remember and use, which can help reduce bugs and improve program readability.
 3.)
-The range of addresses (offset) that can be reached using jal is [-0x100000, +0xFFFFE] (+/- 1MiB). If the PC is at
-0x200000000, the set of possible values for the PC after the beq instruction executes is [0x1FFFF00000, 0x2000FFFFFE].
+The range of addresses (offset) that can be reached using jal is [-0x100000, +0xFFFFE] (+/- 1MiB, -1048576 to 1048574). If the PC is at
+0x200000000, the set of possible values for the PC after the beq instruction executes is [0x1FFF00000, 0x2000FFFFE].
 4.)
-The range of addresses (offset) that can be reached using beq is [-0x1000, +0xFFE] (+/- 4KiB). If the PC is at
-0x200000000, the set of possible values for the PC after the beq instruction executes is [0x1FFFFF000, 0x200000FFE].
+The range of addresses (offset) that can be reached using beq is [-0x1000, +0xFFE] (+/- 4KiB, -4096 to 4094). 
+If the PC is at 0x200000000, the set of possible values for the PC after the beq instruction executes is [0x1FFFFF000, 0x200000FFE].
 
