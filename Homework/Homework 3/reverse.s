@@ -8,18 +8,21 @@
     .globl  main
 
 main:
-    la a0, A # a0 <- address of A
+    # Print before reversing
+    la a0, A
     li a1, sz_A
     jal print_array
 
-    la a0, A # a0 <- address of A
+    la a0, A
     li a1, sz_A
     jal reverse
 
-    la a0, A # a0 <- address of A
+    # Print after reverse
+    la a0, A
     li a1, sz_A
     jal print_array
     
+    # Exit the program
     li a0, 10 # Exit code for ecall     
     ecall 
 
@@ -30,7 +33,7 @@ print_array:
 print_array_loop:
     bge t0, a1, print_array_end_newline # if i >= count, go to print newline
 
-    lw t1, 0(t3)
+    lw t1, 0(t3) # Load A[i]
 
     # Print number
     mv t5, a1 # Save original count (a1) because syscall uses a1
@@ -73,14 +76,14 @@ reverse_loop:
     addi a1, a1, -1 # a1 -= 1; end--
     j reverse_loop
 
-
 reverse_finish:
     lw ra, 0(sp) # Restore ra from stack
     addi sp, sp 4 # Restore stack
     jr ra # Jump to ra
 
-
 swap:
+    # Swap A[i] with A[end - i - 1]
+
     # Offset from base address
     slli t1, t0, 2 # t1 = t0 * 4
     slli t2, a1, 2 # t2 = a1 * 4
