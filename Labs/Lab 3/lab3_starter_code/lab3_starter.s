@@ -1,3 +1,5 @@
+# Implemented extra credit parts 1,2, and 3.
+
 #Starter template for lab 3
 .data
                    #76543210
@@ -102,6 +104,13 @@ adjust_counter:
 #we are done restore the stack properly and return the next counter state in
 #register a0   
 exit_adj_counter:
+    # Check for odd or even counter
+    mv a0, s0
+    jal check_odd_even
+    #Update led accordingly based on counter
+    mv a4, s0
+    jal set_led
+
     mv a0, s0
     lw ra, 0(sp)
     lw s0, 4(sp)
@@ -223,3 +232,37 @@ encode_digit:
     #a0 now has the bitfield for the seven segment display
     # [ digit 10's place ][ digit 1's place ]
     ret
+
+check_odd_even:
+    #a0 = input number
+    li t0, 1
+    and a0, a0, t0
+    ret
+
+set_led:
+    mv a2, ra # Store return address
+    beq a0, zero set_green
+    li a0, 0x121
+    li a1, 0b10 # Turn top led (red) on
+    ecall
+    ret
+
+set_green:
+    li a0, 0x121
+    li a1, 0b01 # Turn on bottom led (green) on
+    ecall
+
+    beq a4, zero, set_led_finish # Counter == 0
+
+    mv t0, a4 #t0 = a4
+    addi t0, t0, -1 #t0 -=1
+    and t0, a4, t0
+
+    bne t0, zero, set_led_finish # Does not equal to zero
+    li a0, 0x121
+    li a1, 0b11 # Turn on both
+    ecall
+
+set_led_finish:
+    jr a2
+    
