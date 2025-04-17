@@ -9,11 +9,15 @@ loop:
 j loop
 
 flash_led:
+    # Move stack down -12
     addi sp, sp, -12
+    # Store return address
     sw ra, 0(sp)
+    # Save s0 and s1
     sw s0, 4(sp)
     sw s1, 8(sp)
 
+    # Loop counter = s0, loop max = s1
     li s0, 0
     li s1, 2 #flash twice
 flash_loop:
@@ -40,6 +44,7 @@ flash_loop:
     j flash_loop
 
 flash_done:
+    # Restore values
     lw ra, 0(sp)
     lw s0, 4(sp)
     lw s1, 8(sp)

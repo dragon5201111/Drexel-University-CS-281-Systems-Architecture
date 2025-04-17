@@ -19,11 +19,15 @@
 
 main:
 li s0, 0
+# Load address of digit_max into s1
 la s1, digit_max
+# Store value of digit_max into s1
 lw s1, 0(s1)
 
 loop:
+    # s0 < s1
     blt s0, s1, next
+    # Restart
     li s0, 0
 next:
     #with the correct value of the
@@ -44,6 +48,7 @@ next:
 
 write_lcd:
     addi sp, sp, -4
+    # Save return address
     sw ra, 0(sp)
 
     #digit is in a0
@@ -60,6 +65,7 @@ write_lcd:
     ecall
 
     lw ra, 0(sp)
+    # Restore stack
     addi sp, sp, 4
     ret
 
@@ -90,6 +96,7 @@ encode_digit:
     la t0, digits       # t1 = &digits[0]
 
     # Calculate the offset for the digit table
+    # ex: a0 = 2 = 0b10, 0b10 << 2 = 1000 = 8 
     slli a0, a0, 2      # Table offset for 10's place
     slli a1, a1, 2      # Table offset for 1's place
 
