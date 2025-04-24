@@ -4,7 +4,7 @@
 #############################################################
     .data
 result: .word 0
-arga:   .word 5
+arga:   .word 100
 argb:   .word 3
 
     .text
@@ -46,18 +46,27 @@ _start:
 #      return a + multiply(a, b-1)
 ######################################
 multiply:
+    # b > a; a1 > a0
+    blt a0, a1, swap
     # Save the current state on the stack
     addi sp, sp, -8     # Push 2 words on stack
-    sw a0, 4(sp)        # Save a 
     sw ra, 0(sp)        # Save ra
+    sw a0, 4(sp)        # Save a 
+
 
     # Base case: b == 0
-    bne a1, zero, recursive_case
+    bne a1, zero, multiply_recur
     li   a0, 0          # Return 0
     addi sp, sp, 8      # Pop the stack
     jr   ra
 
-recursive_case:
+swap:
+    mv t0, a0
+    mv a0, a1
+    mv a1, t0
+    j multiply
+
+multiply_recur:
     # Recursive case: result += a, b--
     addi a1, a1, -1
      # Call the multiply function
