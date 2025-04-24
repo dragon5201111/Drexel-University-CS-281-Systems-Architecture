@@ -1,0 +1,59 @@
+Part 1:
+    2. It necessary to save 8 bytes (2 words) on the stack for each call to multiply
+    because you need 4 bytes to store ra to know where to return to after multiply
+    is finished and another 4 bytes for the value summed after multiply is finished executing.
+    
+    3. sw a0, 4(sp), will save a0 on the stack. This is helpful because once we have all of the
+    numbers we want to add together on the stack, a0 can be changed without influencing
+    the final product.
+    
+    4.
+    multiply(5,3) # Before multiply has executed for the first time
+
+    multiply(5,3)
+    0x7FFFFFEC 05   
+    0x7FFFFFE8 24
+
+    multiply(5,2)
+    0x7FFFFFEC 05   
+    0x7FFFFFE8 24
+    0x7FFFFFE4 05
+    0x7FFFFFE0 68
+
+    multiply(5,1)
+    0x7FFFFFEC 05   
+    0x7FFFFFE8 24
+    0x7FFFFFE4 05
+    0x7FFFFFE0 68
+    0x7FFFFFDC 05
+    0x7FFFFFD8 68
+
+    multiply(5,0)
+    0x7FFFFFEC 05   
+    0x7FFFFFE8 24
+    0x7FFFFFE4 05
+    0x7FFFFFE0 68
+    0x7FFFFFDC 05
+    0x7FFFFFD8 68
+    0x7FFFFFD4 05
+    0x7FFFFFD0 68
+
+    return 1
+    0x7FFFFFEC 05   
+    0x7FFFFFE8 24
+    0x7FFFFFE4 05
+    0x7FFFFFE0 68
+    0x7FFFFFDC 05
+    0x7FFFFFD8 68
+
+    return 2
+    0x7FFFFFEC 05   
+    0x7FFFFFE8 24
+    0x7FFFFFE4 05
+    0x7FFFFFE0 68
+
+    return 3
+    0x7FFFFFEC 05   
+    0x7FFFFFE8 24
+
+    return 4 # On final jr ra in recursive_case
