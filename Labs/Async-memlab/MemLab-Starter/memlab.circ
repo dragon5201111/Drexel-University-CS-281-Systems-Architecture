@@ -106,6 +106,22 @@
     <a name="circuit" val="main"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="1.0"/>
+    <comp lib="0" loc="(1110,840)" name="Splitter">
+      <a name="bit0" val="1"/>
+      <a name="bit2" val="1"/>
+      <a name="bit3" val="1"/>
+      <a name="bit4" val="0"/>
+      <a name="bit5" val="0"/>
+      <a name="bit6" val="0"/>
+      <a name="bit7" val="0"/>
+      <a name="incoming" val="8"/>
+      <a name="spacing" val="3"/>
+    </comp>
+    <comp lib="0" loc="(1110,840)" name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="label" val="data_out"/>
+      <a name="width" val="8"/>
+    </comp>
     <comp lib="0" loc="(120,870)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="address"/>
@@ -116,16 +132,9 @@
       <a name="value" val="0xff"/>
       <a name="width" val="10"/>
     </comp>
-    <comp lib="0" loc="(1240,480)" name="Splitter">
-      <a name="bit1" val="0"/>
-      <a name="bit2" val="0"/>
-      <a name="bit3" val="0"/>
-      <a name="bit4" val="1"/>
-      <a name="bit5" val="1"/>
-      <a name="bit6" val="1"/>
-      <a name="bit7" val="1"/>
-      <a name="incoming" val="8"/>
-      <a name="spacing" val="3"/>
+    <comp lib="0" loc="(1210,480)" name="Tunnel">
+      <a name="label" val="data_out"/>
+      <a name="width" val="8"/>
     </comp>
     <comp lib="0" loc="(200,110)" name="Pin">
       <a name="appearance" val="classic"/>
@@ -210,6 +219,12 @@
       <a name="label" val="clk"/>
       <a name="labelfont" val="SansSerif bold 10"/>
     </comp>
+    <comp lib="0" loc="(800,830)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="address"/>
+      <a name="labelfont" val="SansSerif bold 10"/>
+      <a name="width" val="10"/>
+    </comp>
     <comp lib="0" loc="(810,100)" name="Tunnel">
       <a name="label" val="address"/>
       <a name="labelfont" val="SansSerif bold 10"/>
@@ -246,16 +261,10 @@
       <a name="labelfont" val="SansSerif bold 10"/>
       <a name="width" val="10"/>
     </comp>
-    <comp lib="1" loc="(160,720)" name="NOT Gate">
-      <a name="facing" val="west"/>
-    </comp>
     <comp lib="1" loc="(310,790)" name="AND Gate">
       <a name="facing" val="north"/>
       <a name="inputs" val="3"/>
       <a name="size" val="30"/>
-    </comp>
-    <comp lib="1" loc="(330,660)" name="NOT Gate">
-      <a name="facing" val="west"/>
     </comp>
     <comp lib="1" loc="(370,210)" name="AND Gate">
       <a name="size" val="30"/>
@@ -270,6 +279,9 @@
     <comp lib="1" loc="(460,620)" name="AND Gate">
       <a name="size" val="30"/>
     </comp>
+    <comp lib="1" loc="(490,700)" name="NOT Gate">
+      <a name="size" val="20"/>
+    </comp>
     <comp lib="1" loc="(500,600)" name="NOT Gate">
       <a name="size" val="20"/>
     </comp>
@@ -278,6 +290,10 @@
     </comp>
     <comp lib="1" loc="(570,610)" name="AND Gate">
       <a name="size" val="30"/>
+    </comp>
+    <comp lib="1" loc="(690,700)" name="NOT Gate">
+      <a name="facing" val="south"/>
+      <a name="size" val="20"/>
     </comp>
     <comp lib="1" loc="(820,610)" name="OR Gate">
       <a name="size" val="30"/>
@@ -298,24 +314,11 @@
     <comp lib="4" loc="(800,390)" name="Register">
       <a name="appearance" val="logisim_evolution"/>
     </comp>
-    <comp lib="5" loc="(1080,370)" name="Hex Digit Display">
+    <comp lib="5" loc="(1010,780)" name="Hex Digit Display">
       <a name="color" val="#0020f0"/>
     </comp>
-    <comp lib="5" loc="(1130,370)" name="Hex Digit Display">
-      <a name="color" val="#0020f0"/>
-    </comp>
-    <comp lib="5" loc="(1180,370)" name="Hex Digit Display">
-      <a name="color" val="#0020f0"/>
-    </comp>
-    <comp lib="5" loc="(1290,420)" name="Hex Digit Display"/>
-    <comp lib="5" loc="(1340,420)" name="Hex Digit Display"/>
-    <comp lib="5" loc="(160,390)" name="LED">
-      <a name="color" val="#1af000"/>
-      <a name="facing" val="south"/>
-      <a name="label" val="config_fault"/>
-      <a name="labelloc" val="north"/>
-      <a name="offcolor" val="#ff0011"/>
-    </comp>
+    <comp lib="5" loc="(1160,780)" name="Hex Digit Display"/>
+    <comp lib="5" loc="(1210,780)" name="Hex Digit Display"/>
     <comp lib="5" loc="(200,190)" name="Button">
       <a name="label" val="reset"/>
     </comp>
@@ -325,17 +328,27 @@
     <comp lib="5" loc="(380,320)" name="Button">
       <a name="label" val="mem_clear"/>
     </comp>
-    <comp lib="5" loc="(60,390)" name="LED">
+    <comp lib="5" loc="(570,730)" name="LED">
       <a name="color" val="#1af000"/>
-      <a name="facing" val="south"/>
+      <a name="facing" val="north"/>
       <a name="label" val="mem_fault"/>
-      <a name="labelloc" val="north"/>
+      <a name="labelloc" val="south"/>
       <a name="offcolor" val="#ff0011"/>
     </comp>
-    <comp lib="8" loc="(1124,289)" name="Text">
-      <a name="text" val="Address"/>
+    <comp lib="5" loc="(690,730)" name="LED">
+      <a name="color" val="#1af000"/>
+      <a name="facing" val="north"/>
+      <a name="label" val="config_fault"/>
+      <a name="labelloc" val="south"/>
+      <a name="offcolor" val="#ff0011"/>
     </comp>
-    <comp lib="8" loc="(1312,341)" name="Text">
+    <comp lib="5" loc="(910,780)" name="Hex Digit Display">
+      <a name="color" val="#0020f0"/>
+    </comp>
+    <comp lib="5" loc="(960,780)" name="Hex Digit Display">
+      <a name="color" val="#0020f0"/>
+    </comp>
+    <comp lib="8" loc="(1183,696)" name="Text">
       <a name="text" val="Value"/>
     </comp>
     <comp lib="8" loc="(195,80)" name="Text">
@@ -346,25 +359,20 @@
       <a name="color" val="#ff0000"/>
       <a name="text" val="Configuration Switches"/>
     </comp>
-    <comp loc="(1060,420)" name="hex_10_bit_display"/>
+    <comp lib="8" loc="(954,699)" name="Text">
+      <a name="text" val="Address"/>
+    </comp>
     <comp loc="(1190,480)" name="oneKram"/>
     <comp loc="(690,520)" name="firmware"/>
-    <wire from="(1060,410)" to="(1080,410)"/>
-    <wire from="(1060,420)" to="(1130,420)"/>
-    <wire from="(1060,430)" to="(1180,430)"/>
-    <wire from="(1080,370)" to="(1080,410)"/>
-    <wire from="(1130,370)" to="(1130,420)"/>
-    <wire from="(1180,370)" to="(1180,430)"/>
-    <wire from="(1190,480)" to="(1240,480)"/>
+    <comp loc="(890,830)" name="hex_10_bit_display"/>
+    <wire from="(1010,780)" to="(1010,840)"/>
+    <wire from="(1130,800)" to="(1160,800)"/>
+    <wire from="(1130,830)" to="(1210,830)"/>
+    <wire from="(1160,780)" to="(1160,800)"/>
+    <wire from="(1190,480)" to="(1210,480)"/>
     <wire from="(120,870)" to="(160,870)"/>
     <wire from="(120,890)" to="(160,890)"/>
-    <wire from="(1260,440)" to="(1290,440)"/>
-    <wire from="(1260,470)" to="(1340,470)"/>
-    <wire from="(1290,420)" to="(1290,440)"/>
-    <wire from="(1340,420)" to="(1340,470)"/>
-    <wire from="(160,390)" to="(160,660)"/>
-    <wire from="(160,660)" to="(330,660)"/>
-    <wire from="(190,720)" to="(310,720)"/>
+    <wire from="(1210,780)" to="(1210,830)"/>
     <wire from="(200,110)" to="(330,110)"/>
     <wire from="(200,150)" to="(220,150)"/>
     <wire from="(200,190)" to="(230,190)"/>
@@ -393,7 +401,8 @@
     <wire from="(300,820)" to="(300,890)"/>
     <wire from="(310,120)" to="(310,220)"/>
     <wire from="(310,220)" to="(340,220)"/>
-    <wire from="(310,720)" to="(310,790)"/>
+    <wire from="(310,700)" to="(310,790)"/>
+    <wire from="(310,700)" to="(470,700)"/>
     <wire from="(310,820)" to="(310,850)"/>
     <wire from="(310,850)" to="(340,850)"/>
     <wire from="(320,440)" to="(320,570)"/>
@@ -411,7 +420,6 @@
     <wire from="(360,570)" to="(360,610)"/>
     <wire from="(360,570)" to="(420,570)"/>
     <wire from="(360,610)" to="(430,610)"/>
-    <wire from="(360,660)" to="(640,660)"/>
     <wire from="(370,160)" to="(380,160)"/>
     <wire from="(370,210)" to="(540,210)"/>
     <wire from="(370,860)" to="(460,860)"/>
@@ -434,17 +442,17 @@
     <wire from="(490,110)" to="(490,170)"/>
     <wire from="(490,110)" to="(750,110)"/>
     <wire from="(490,170)" to="(540,170)"/>
+    <wire from="(490,700)" to="(570,700)"/>
     <wire from="(500,600)" to="(540,600)"/>
     <wire from="(520,890)" to="(620,890)"/>
     <wire from="(570,220)" to="(570,230)"/>
     <wire from="(570,230)" to="(570,250)"/>
     <wire from="(570,250)" to="(580,250)"/>
     <wire from="(570,610)" to="(600,610)"/>
-    <wire from="(60,390)" to="(60,720)"/>
-    <wire from="(60,720)" to="(160,720)"/>
+    <wire from="(570,700)" to="(570,730)"/>
     <wire from="(600,170)" to="(640,170)"/>
     <wire from="(600,610)" to="(600,640)"/>
-    <wire from="(600,640)" to="(640,640)"/>
+    <wire from="(600,640)" to="(690,640)"/>
     <wire from="(600,810)" to="(600,840)"/>
     <wire from="(600,840)" to="(610,840)"/>
     <wire from="(620,870)" to="(620,890)"/>
@@ -452,11 +460,12 @@
     <wire from="(640,140)" to="(800,140)"/>
     <wire from="(640,170)" to="(680,170)"/>
     <wire from="(640,190)" to="(680,190)"/>
-    <wire from="(640,640)" to="(640,660)"/>
-    <wire from="(640,640)" to="(770,640)"/>
     <wire from="(640,850)" to="(670,850)"/>
     <wire from="(680,610)" to="(720,610)"/>
     <wire from="(690,520)" to="(700,520)"/>
+    <wire from="(690,640)" to="(690,680)"/>
+    <wire from="(690,640)" to="(770,640)"/>
+    <wire from="(690,700)" to="(690,730)"/>
     <wire from="(700,420)" to="(700,520)"/>
     <wire from="(700,420)" to="(800,420)"/>
     <wire from="(700,520)" to="(700,590)"/>
@@ -471,16 +480,20 @@
     <wire from="(800,100)" to="(800,140)"/>
     <wire from="(800,100)" to="(810,100)"/>
     <wire from="(800,140)" to="(870,140)"/>
+    <wire from="(800,830)" to="(830,830)"/>
     <wire from="(820,610)" to="(840,610)"/>
     <wire from="(830,560)" to="(970,560)"/>
     <wire from="(860,420)" to="(890,420)"/>
     <wire from="(870,540)" to="(970,540)"/>
     <wire from="(890,420)" to="(890,500)"/>
     <wire from="(890,500)" to="(970,500)"/>
+    <wire from="(890,820)" to="(910,820)"/>
+    <wire from="(890,830)" to="(960,830)"/>
+    <wire from="(890,840)" to="(1010,840)"/>
+    <wire from="(910,780)" to="(910,820)"/>
     <wire from="(920,520)" to="(970,520)"/>
     <wire from="(960,480)" to="(970,480)"/>
-    <wire from="(970,420)" to="(1000,420)"/>
-    <wire from="(970,420)" to="(970,480)"/>
+    <wire from="(960,780)" to="(960,830)"/>
   </circuit>
   <circuit name="oneKram">
     <a name="appearance" val="logisim_evolution"/>
