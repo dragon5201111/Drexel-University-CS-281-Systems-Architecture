@@ -97,6 +97,22 @@
       <a name="label" val="alug"/>
       <a name="labelfont" val="SansSerif bold 9"/>
     </comp>
+    <comp lib="0" loc="(1070,260)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="alu_out"/>
+      <a name="labelfont" val="SansSerif bold 9"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(1080,290)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="jalr"/>
+      <a name="labelfont" val="SansSerif bold 9"/>
+    </comp>
+    <comp lib="0" loc="(1080,620)" name="Tunnel">
+      <a name="label" val="memtoreg"/>
+      <a name="labelfont" val="SansSerif bold 10"/>
+      <a name="width" val="32"/>
+    </comp>
     <comp lib="0" loc="(120,100)" name="Clock">
       <a name="label" val="clk"/>
     </comp>
@@ -230,6 +246,18 @@
     <comp lib="0" loc="(340,1010)" name="Constant">
       <a name="width" val="10"/>
     </comp>
+    <comp lib="0" loc="(340,640)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="memtoreg"/>
+      <a name="labelfont" val="SansSerif bold 10"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(340,660)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="ppp4"/>
+      <a name="labelfont" val="SansSerif bold 9"/>
+      <a name="width" val="32"/>
+    </comp>
     <comp lib="0" loc="(350,250)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="imm"/>
@@ -238,6 +266,11 @@
     </comp>
     <comp lib="0" loc="(350,270)" name="Constant">
       <a name="width" val="5"/>
+    </comp>
+    <comp lib="0" loc="(350,700)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="jit"/>
+      <a name="labelfont" val="SansSerif bold 9"/>
     </comp>
     <comp lib="0" loc="(360,460)" name="Tunnel">
       <a name="facing" val="north"/>
@@ -560,7 +593,13 @@
       <a name="selloc" val="tr"/>
       <a name="width" val="32"/>
     </comp>
+    <comp lib="2" loc="(1110,250)" name="Multiplexer">
+      <a name="width" val="32"/>
+    </comp>
     <comp lib="2" loc="(310,70)" name="Multiplexer"/>
+    <comp lib="2" loc="(390,650)" name="Multiplexer">
+      <a name="width" val="32"/>
+    </comp>
     <comp lib="2" loc="(630,690)" name="Multiplexer">
       <a name="selloc" val="tr"/>
       <a name="width" val="32"/>
@@ -662,17 +701,20 @@
     <wire from="(1010,370)" to="(1050,370)"/>
     <wire from="(1020,380)" to="(1020,390)"/>
     <wire from="(1030,420)" to="(1030,600)"/>
-    <wire from="(1050,150)" to="(1050,240)"/>
     <wire from="(1050,370)" to="(1050,380)"/>
-    <wire from="(1050,620)" to="(1060,620)"/>
-    <wire from="(1060,620)" to="(1060,770)"/>
+    <wire from="(1050,620)" to="(1080,620)"/>
+    <wire from="(1070,260)" to="(1080,260)"/>
+    <wire from="(1080,290)" to="(1090,290)"/>
+    <wire from="(1090,270)" to="(1090,290)"/>
+    <wire from="(1110,250)" to="(1120,250)"/>
+    <wire from="(1120,150)" to="(1120,250)"/>
     <wire from="(120,100)" to="(150,100)"/>
     <wire from="(120,70)" to="(150,70)"/>
     <wire from="(120,760)" to="(120,790)"/>
     <wire from="(130,590)" to="(140,590)"/>
     <wire from="(130,610)" to="(170,610)"/>
     <wire from="(130,630)" to="(200,630)"/>
-    <wire from="(140,150)" to="(1050,150)"/>
+    <wire from="(140,150)" to="(1120,150)"/>
     <wire from="(140,150)" to="(140,210)"/>
     <wire from="(140,210)" to="(140,320)"/>
     <wire from="(140,210)" to="(170,210)"/>
@@ -728,20 +770,24 @@
     <wire from="(340,1010)" to="(360,1010)"/>
     <wire from="(340,430)" to="(340,540)"/>
     <wire from="(340,430)" to="(360,430)"/>
+    <wire from="(340,640)" to="(360,640)"/>
+    <wire from="(340,660)" to="(360,660)"/>
     <wire from="(340,930)" to="(340,990)"/>
     <wire from="(340,930)" to="(530,930)"/>
     <wire from="(340,990)" to="(360,990)"/>
     <wire from="(350,250)" to="(370,250)"/>
     <wire from="(350,270)" to="(370,270)"/>
+    <wire from="(350,700)" to="(370,700)"/>
     <wire from="(360,430)" to="(360,460)"/>
     <wire from="(360,430)" to="(370,430)"/>
     <wire from="(370,390)" to="(370,430)"/>
     <wire from="(370,390)" to="(410,390)"/>
+    <wire from="(370,670)" to="(370,700)"/>
     <wire from="(380,200)" to="(430,200)"/>
+    <wire from="(390,650)" to="(400,650)"/>
     <wire from="(400,1000)" to="(410,1000)"/>
-    <wire from="(400,640)" to="(400,770)"/>
+    <wire from="(400,640)" to="(400,650)"/>
     <wire from="(400,640)" to="(420,640)"/>
-    <wire from="(400,770)" to="(1060,770)"/>
     <wire from="(410,260)" to="(460,260)"/>
     <wire from="(410,950)" to="(410,1000)"/>
     <wire from="(420,130)" to="(430,130)"/>
@@ -839,7 +885,7 @@
     <wire from="(850,260)" to="(850,270)"/>
     <wire from="(850,500)" to="(850,540)"/>
     <wire from="(860,60)" to="(860,70)"/>
-    <wire from="(870,240)" to="(1050,240)"/>
+    <wire from="(870,240)" to="(1080,240)"/>
     <wire from="(890,340)" to="(900,340)"/>
     <wire from="(900,460)" to="(900,580)"/>
     <wire from="(920,1000)" to="(960,1000)"/>
@@ -3519,7 +3565,9 @@
       <a name="addrWidth" val="10"/>
       <a name="appearance" val="classic"/>
       <a name="contents">addr/data: 10 32
-293 500313 128293 fe629ee3 30393
+500413 300493 40513 48593 8000ef 73 a5c463 13
+ff810113 a12223 112023 59863 513 810113 8067 fff58593
+fe1ff0ef 412283 550533 12083 810113 8067
 </a>
       <a name="dataWidth" val="32"/>
     </comp>
